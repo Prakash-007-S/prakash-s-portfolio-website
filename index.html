@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OMPRAKASH.S | THE AMAZING DATA SCIENTIST</title>
+  <meta name="description" content="Portfolio of Omprakash.S - Data Scientist, Full Stack Developer, Python Expert. Spider-Verse comic style portfolio."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@400;700&family=Orbitron:wght@400;700;900&family=Bebas+Neue&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div id="loader" class="loader">
+    <div class="loader-web">
+      <canvas id="loaderCanvas"></canvas>
+    </div>
+    <div class="loader-text">
+      <span class="glitch" data-text="LOADING...">LOADING...</span>
+      <div class="loader-bar"><div class="loader-fill"></div></div>
+    </div>
+    <div class="loader-spider">🕷️</div>
+  </div>
+
+  <!-- Cursor Spider -->
+  <div id="cursorSpider" class="cursor-spider">🕷</div>
+  <div id="cursorTrail" class="cursor-trail"></div>
+
+  <!-- NAV -->
+  <nav id="navbar" class="navbar">
+    <div class="nav-logo">
+      <span class="logo-bracket">[</span>
+      <span class="logo-text">Prakash</span>
+      <span class="logo-bracket">]</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#hero" class="nav-link" data-label="HOME">HOME</a></li>
+      <li><a href="#about" class="nav-link" data-label="ABOUT">ABOUT</a></li>
+      <li><a href="#skills" class="nav-link" data-label="SKILLS">SKILLS</a></li>
+      <li><a href="#projects" class="nav-link" data-label="PROJECTS">PROJECTS</a></li>
+      <li><a href="#contact" class="nav-link" data-label="CONTACT">CONTACT</a></li>
+    </ul>
+    <div class="nav-web-btn" id="mobileMenuBtn">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#hero" class="mob-link">HOME</a>
+    <a href="#about" class="mob-link">ABOUT</a>
+    <a href="#skills" class="mob-link">SKILLS</a>
+    <a href="#projects" class="mob-link">PROJECTS</a>
+    <a href="#contact" class="mob-link">CONTACT</a>
+  </div>
+
+  <!-- HERO SECTION -->
+  <section id="hero" class="hero-section">
+    <canvas id="webCanvas" class="web-canvas"></canvas>
+    <div class="halftone-overlay"></div>
+    <div class="comic-panels-bg">
+      <div class="bg-panel p1"></div>
+      <div class="bg-panel p2"></div>
+      <div class="bg-panel p3"></div>
+    </div>
+
+    <!-- Floating particles -->
+    <div class="particles" id="particles"></div>
+
+    <div class="hero-content">
+      <div class="hero-left">
+        <div class="comic-badge badge-bounce">
+          <span>⚡ NEW ISSUE!</span>
+        </div>
+        <h1 class="hero-title">
+          <span class="title-line glitch-text" data-text="THE AMAZING">THE AMAZING</span>
+          <span class="title-name">
+            <span class="name-om">OMPRAKASH</span>
+            <span class="name-dot">.</span>
+            <span class="name-s">S</span>
+          </span>
+          <span class="title-line subtitle-role">
+            <span class="role-tag" id="roleRotator">DATA SCIENTIST</span>
+          </span>
+        </h1>
+
+        <div class="speech-bubble hero-bubble">
+          <p>With great data comes great responsibility!</p>
+        </div>
+
+        <div class="hero-btns">
+          <a href="#projects" class="btn-comic btn-primary">
+            <span class="btn-shadow"></span>
+            <span class="btn-text">🕸️ VIEW MY WORK</span>
+          </a>
+          <a href="#contact" class="btn-comic btn-secondary">
+            <span class="btn-shadow"></span>
+            <span class="btn-text">📡 CONTACT ME</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="hero-figure-wrap">
+          <div class="figure-glow"></div>
+          <svg class="hero-spider-svg" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+            <!-- Spider-Man figure (stylized) -->
+            <defs>
+              <radialGradient id="heroGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#e23636" stop-opacity="0.4"/>
+                <stop offset="100%" stop-color="#1a1a2e" stop-opacity="0"/>
+              </radialGradient>
+              <filter id="glow"><feGaussianBlur stdDeviation="4" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            </defs>
+            <!-- Background glow -->
+            <ellipse cx="200" cy="350" rx="180" ry="80" fill="url(#heroGlow)"/>
+            <!-- Web lines from top -->
+            <line x1="200" y1="0" x2="200" y2="120" stroke="#e23636" stroke-width="3" stroke-dasharray="8,4" class="web-line-anim"/>
+            <line x1="200" y1="0" x2="140" y2="120" stroke="#e23636" stroke-width="2" stroke-dasharray="6,4" class="web-line-anim"/>
+            <line x1="200" y1="0" x2="260" y2="120" stroke="#e23636" stroke-width="2" stroke-dasharray="6,4" class="web-line-anim"/>
+            <!-- Body -->
+            <ellipse cx="200" cy="240" rx="70" ry="90" fill="#e23636" filter="url(#glow)"/>
+            <!-- Spider symbol on chest -->
+            <path d="M200,200 L185,220 L200,215 L215,220 Z" fill="#1a1a2e"/>
+            <path d="M200,215 L180,235 L200,230 L220,235 Z" fill="#1a1a2e"/>
+            <circle cx="200" cy="200" r="10" fill="#1a1a2e"/>
+            <!-- Arms -->
+            <path d="M130,210 Q80,230 60,280" stroke="#003153" stroke-width="22" fill="none" stroke-linecap="round"/>
+            <path d="M130,210 Q80,230 60,280" stroke="#e23636" stroke-width="16" fill="none" stroke-linecap="round"/>
+            <path d="M270,210 Q320,230 360,270" stroke="#003153" stroke-width="22" fill="none" stroke-linecap="round"/>
+            <path d="M270,210 Q320,230 360,270" stroke="#e23636" stroke-width="16" fill="none" stroke-linecap="round"/>
+            <!-- Hands -->
+            <circle cx="60" cy="282" r="18" fill="#003153"/>
+            <circle cx="60" cy="282" r="14" fill="#e23636"/>
+            <circle cx="358" cy="272" r="18" fill="#003153"/>
+            <circle cx="358" cy="272" r="14" fill="#e23636"/>
+            <!-- Legs -->
+            <path d="M170,320 Q160,380 150,440" stroke="#003153" stroke-width="26" fill="none" stroke-linecap="round"/>
+            <path d="M170,320 Q160,380 150,440" stroke="#e23636" stroke-width="20" fill="none" stroke-linecap="round"/>
+            <path d="M230,320 Q240,380 255,440" stroke="#003153" stroke-width="26" fill="none" stroke-linecap="round"/>
+            <path d="M230,320 Q240,380 255,440" stroke="#e23636" stroke-width="20" fill="none" stroke-linecap="round"/>
+            <!-- Boots -->
+            <ellipse cx="150" cy="445" rx="25" ry="14" fill="#1a1a2e"/>
+            <ellipse cx="255" cy="445" rx="25" ry="14" fill="#1a1a2e"/>
+            <!-- Head -->
+            <ellipse cx="200" cy="150" rx="55" ry="60" fill="#e23636" filter="url(#glow)"/>
+            <ellipse cx="200" cy="150" rx="53" ry="58" fill="#e23636"/>
+            <!-- Eyes (Spider-Man mask eyes) -->
+            <ellipse cx="180" cy="138" rx="22" ry="14" fill="white"/>
+            <ellipse cx="220" cy="138" rx="22" ry="14" fill="white"/>
+            <ellipse cx="180" cy="138" rx="16" ry="10" fill="#1a1a2e"/>
+            <ellipse cx="220" cy="138" rx="16" ry="10" fill="#1a1a2e"/>
+            <!-- Web pattern on head -->
+            <line x1="200" y1="92" x2="200" y2="210" stroke="#1a1a2e" stroke-width="1.5" opacity="0.6"/>
+            <line x1="147" y1="120" x2="253" y2="180" stroke="#1a1a2e" stroke-width="1.5" opacity="0.6"/>
+            <line x1="145" y1="170" x2="255" y2="130" stroke="#1a1a2e" stroke-width="1.5" opacity="0.6"/>
+            <ellipse cx="200" cy="150" rx="30" ry="30" fill="none" stroke="#1a1a2e" stroke-width="1.5" opacity="0.6"/>
+            <ellipse cx="200" cy="150" rx="50" ry="50" fill="none" stroke="#1a1a2e" stroke-width="1.5" opacity="0.6"/>
+            <!-- Comic SFX -->
+            <text x="310" y="70" font-family="Bangers" font-size="28" fill="#FFD700" stroke="#1a1a2e" stroke-width="2" transform="rotate(-15,300,60)" class="sfx-pulse">WHOOSH!</text>
+            <text x="30" y="100" font-family="Bangers" font-size="22" fill="#00ff88" stroke="#1a1a2e" stroke-width="2" transform="rotate(10,30,90)" class="sfx-pulse">ZAP!</text>
+          </svg>
+          <!-- Floating tech icons -->
+          <div class="float-icon fi1">🐍</div>
+          <div class="float-icon fi2">📊</div>
+          <div class="float-icon fi3">⚡</div>
+          <div class="float-icon fi4">🤖</div>
+          <div class="float-icon fi5">💻</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="scroll-hint">
+      <span>SCROLL DOWN</span>
+      <div class="scroll-web">↓</div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about" class="about-section section-panel">
+    <div class="section-label">// ORIGIN STORY</div>
+    <div class="sfx-bg-text">WHO AM I?</div>
+
+    <div class="about-container">
+      <div class="comic-strip">
+        <!-- Panel 1 -->
+        <div class="comic-panel panel-origin" data-aos="panel-in-left">
+          <div class="panel-number">01</div>
+          <div class="panel-content">
+            <div class="panel-image origin-img">
+              <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <rect width="200" height="200" fill="#1a1a2e"/>
+                <circle cx="100" cy="80" r="45" fill="#e23636"/>
+                <ellipse cx="100" cy="175" rx="60" ry="30" fill="#003153"/>
+                <rect x="55" y="110" width="90" height="70" rx="5" fill="#003153"/>
+                <!-- Laptop on lap -->
+                <rect x="60" y="145" width="80" height="50" rx="4" fill="#222"/>
+                <rect x="65" y="150" width="70" height="38" rx="2" fill="#00ff88" opacity="0.3"/>
+                <text x="75" y="170" font-family="monospace" font-size="8" fill="#00ff88">print("Hello")</text>
+              </svg>
+            </div>
+            <div class="panel-caption">
+              <h3>THE ORIGIN</h3>
+              <p>A passionate developer bitten by the Python snake 🐍</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 2 - Big center -->
+        <div class="comic-panel panel-main" data-aos="panel-in-up">
+          <div class="panel-content panel-about-main">
+            <div class="about-badge">
+              <span class="badge-web">🕸️</span>
+              <span>HERO PROFILE</span>
+            </div>
+            <h2 class="about-name">OMPRAKASH<span class="dot-accent">.</span>S</h2>
+            <div class="role-tags-list">
+              <span class="role-chip r1">🧠 DATA SCIENTIST</span>
+              <span class="role-chip r2">💻 FULL STACK DEV</span>
+              <span class="role-chip r3">🐍 PYTHON EXPERT</span>
+              <span class="role-chip r4">⚡ DATA ENGINEER</span>
+              <span class="role-chip r5">📊 DATA ANALYST</span>
+            </div>
+            <div class="about-bio">
+              <div class="speech-bubble bio-bubble">
+                <p>I transform raw data into superpowers! From building machine learning models that predict the future, to crafting full-stack applications that scale — I'm your friendly neighborhood Data Scientist.</p>
+              </div>
+            </div>
+            <div class="about-stats">
+              <div class="stat-card">
+                <div class="stat-num" data-count="50">0</div>
+                <div class="stat-label">PROJECTS</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-num" data-count="5">0</div>
+                <div class="stat-label">ROLES</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-num" data-count="100">0</div>
+                <div class="stat-label">% PASSION</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 3 -->
+        <div class="comic-panel panel-vibe" data-aos="panel-in-right">
+          <div class="panel-number">02</div>
+          <div class="panel-content">
+            <div class="panel-image vibe-img">
+              <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <rect width="200" height="200" fill="#0d0d0d"/>
+                <!-- AI visualization -->
+                <circle cx="100" cy="100" r="50" fill="none" stroke="#e23636" stroke-width="2"/>
+                <circle cx="100" cy="100" r="30" fill="none" stroke="#FFD700" stroke-width="2"/>
+                <circle cx="100" cy="100" r="10" fill="#e23636"/>
+                <!-- Neural network nodes -->
+                <circle cx="40" cy="60" r="8" fill="#e23636"/>
+                <circle cx="40" cy="140" r="8" fill="#e23636"/>
+                <circle cx="160" cy="60" r="8" fill="#FFD700"/>
+                <circle cx="160" cy="140" r="8" fill="#FFD700"/>
+                <circle cx="100" cy="30" r="8" fill="#00ff88"/>
+                <circle cx="100" cy="170" r="8" fill="#00ff88"/>
+                <!-- Connections -->
+                <line x1="40" y1="60" x2="100" y2="100" stroke="#e23636" stroke-width="1" opacity="0.7"/>
+                <line x1="40" y1="140" x2="100" y2="100" stroke="#e23636" stroke-width="1" opacity="0.7"/>
+                <line x1="160" y1="60" x2="100" y2="100" stroke="#FFD700" stroke-width="1" opacity="0.7"/>
+                <line x1="160" y1="140" x2="100" y2="100" stroke="#FFD700" stroke-width="1" opacity="0.7"/>
+                <line x1="100" y1="30" x2="100" y2="100" stroke="#00ff88" stroke-width="1" opacity="0.7"/>
+                <line x1="100" y1="170" x2="100" y2="100" stroke="#00ff88" stroke-width="1" opacity="0.7"/>
+              </svg>
+            </div>
+            <div class="panel-caption">
+              <h3>THE POWER</h3>
+              <p>AI & ML systems that think faster than villains 🤖</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Action SFX -->
+    <div class="sfx-float sfx1">POW!</div>
+    <div class="sfx-float sfx2">ZAP!</div>
+  </section>
+
+  <!-- SKILLS SECTION -->
+  <section id="skills" class="skills-section section-panel">
+    <div class="section-label">// SUPERPOWERS</div>
+    <div class="sfx-bg-text">SKILLS</div>
+
+    <div class="skills-header">
+      <h2 class="section-title">MY <span class="accent-red">SUPER</span>POWERS</h2>
+      <p class="section-sub">The abilities that make me your neighborhood hero</p>
+    </div>
+
+    <div class="skills-grid">
+      <!-- Python -->
+      <div class="skill-card" id="skill-python" data-skill="90">
+        <div class="skill-card-inner">
+          <div class="skill-front">
+            <div class="skill-icon">🐍</div>
+            <div class="skill-name">PYTHON</div>
+            <div class="skill-tag">DATA SCIENCE</div>
+            <div class="skill-web-bar">
+              <div class="web-progress" style="--prog:90%"></div>
+            </div>
+            <div class="skill-level">MASTER LVL</div>
+          </div>
+          <div class="skill-back">
+            <h3>🐍 PYTHON</h3>
+            <ul>
+              <li>NumPy / Pandas</li>
+              <li>Scikit-learn / TensorFlow</li>
+              <li>Matplotlib / Seaborn</li>
+              <li>FastAPI / Flask</li>
+              <li>Data pipelines</li>
+            </ul>
+            <div class="skill-xp">XP: 9000+</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Full Stack -->
+      <div class="skill-card" id="skill-fullstack" data-skill="85">
+        <div class="skill-card-inner">
+          <div class="skill-front">
+            <div class="skill-icon">💻</div>
+            <div class="skill-name">FULL STACK</div>
+            <div class="skill-tag">DEV HERO</div>
+            <div class="skill-web-bar">
+              <div class="web-progress" style="--prog:85%"></div>
+            </div>
+            <div class="skill-level">ELITE LVL</div>
+          </div>
+          <div class="skill-back">
+            <h3>💻 FULL STACK</h3>
+            <ul>
+              <li>React / Next.js</li>
+              <li>Node.js / Express</li>
+              <li>HTML / CSS / JS</li>
+              <li>REST APIs</li>
+              <li>MongoDB / PostgreSQL</li>
+            </ul>
+            <div class="skill-xp">XP: 8500+</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Problem Solving -->
+      <div class="skill-card" id="skill-problem" data-skill="95">
+        <div class="skill-card-inner">
+          <div class="skill-front">
+            <div class="skill-icon">🧠</div>
+            <div class="skill-name">PROBLEM SOLVING</div>
+            <div class="skill-tag">SUPER BRAIN</div>
+            <div class="skill-web-bar">
+              <div class="web-progress" style="--prog:95%"></div>
+            </div>
+            <div class="skill-level">LEGENDARY</div>
+          </div>
+          <div class="skill-back">
+            <h3>🧠 PROBLEM SOLVING</h3>
+            <ul>
+              <li>Algorithms & DSA</li>
+              <li>System Design</li>
+              <li>Analytical Thinking</li>
+              <li>Debug Mastery</li>
+              <li>Creative Solutions</li>
+            </ul>
+            <div class="skill-xp">XP: 9500+</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vibe Coding -->
+      <div class="skill-card skill-featured" id="skill-vibe" data-skill="99">
+        <div class="skill-card-inner">
+          <div class="skill-front">
+            <div class="skill-icon">🎯</div>
+            <div class="skill-name">VIBE CODING</div>
+            <div class="skill-tag">UNIQUE POWER</div>
+            <div class="skill-web-bar">
+              <div class="web-progress" style="--prog:99%"></div>
+            </div>
+            <div class="skill-level">∞ LEVEL</div>
+          </div>
+          <div class="skill-back">
+            <h3>🎯 VIBE CODING</h3>
+            <ul>
+              <li>AI-Assisted Dev</li>
+              <li>Prompt Engineering</li>
+              <li>Rapid Prototyping</li>
+              <li>Creative Flow State</li>
+              <li>Intuitive Building</li>
+            </ul>
+            <div class="skill-xp">XP: ∞</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI Projects -->
+      <div class="skill-card" id="skill-ai" data-skill="88">
+        <div class="skill-card-inner">
+          <div class="skill-front">
+            <div class="skill-icon">🤖</div>
+            <div class="skill-name">AI PROJECTS</div>
+            <div class="skill-tag">FUTURE TECH</div>
+            <div class="skill-web-bar">
+              <div class="web-progress" style="--prog:88%"></div>
+            </div>
+            <div class="skill-level">EXPERT LVL</div>
+          </div>
+          <div class="skill-back">
+            <h3>🤖 AI PROJECTS</h3>
+            <ul>
+              <li>LLM Applications</li>
+              <li>ML Model Training</li>
+              <li>Computer Vision</li>
+              <li>NLP Processing</li>
+              <li>Generative AI</li>
+            </ul>
+            <div class="skill-xp">XP: 8800+</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Data Engineering -->
+      <div class="skill-card" id="skill-data" data-skill="82">
+        <div class="skill-card-inner">
+          <div class="skill-front">
+            <div class="skill-icon">📊</div>
+            <div class="skill-name">DATA ENGINEER</div>
+            <div class="skill-tag">PIPELINE PRO</div>
+            <div class="skill-web-bar">
+              <div class="web-progress" style="--prog:82%"></div>
+            </div>
+            <div class="skill-level">ADVANCED</div>
+          </div>
+          <div class="skill-back">
+            <h3>📊 DATA ENGINEERING</h3>
+            <ul>
+              <li>ETL Pipelines</li>
+              <li>Apache Spark</li>
+              <li>SQL / NoSQL</li>
+              <li>Data Warehousing</li>
+              <li>Analytics Dashboards</li>
+            </ul>
+            <div class="skill-xp">XP: 8200+</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Web animation connecting skills -->
+    <canvas id="skillWebCanvas" class="skill-web-canvas"></canvas>
+  </section>
+
+  <!-- PROJECTS SECTION -->
+  <section id="projects" class="projects-section section-panel">
+    <div class="section-label">// MISSIONS COMPLETED</div>
+    <div class="sfx-bg-text">PROJECTS</div>
+
+    <div class="projects-header">
+      <h2 class="section-title">MISSION <span class="accent-yellow">FILES</span></h2>
+      <p class="section-sub">Classified projects from the Data Science multiverse</p>
+    </div>
+
+    <div class="comic-book-layout">
+      <!-- Project 1 -->
+      <div class="project-panel pp1" data-aos="fade-up">
+        <div class="project-panel-inner">
+          <div class="project-num">CASE #001</div>
+          <div class="project-visual pv1">
+            <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+              <rect width="300" height="200" fill="#1a1a2e"/>
+              <!-- Data visualization mock -->
+              <rect x="20" y="150" width="30" height="40" fill="#e23636" opacity="0.9"/>
+              <rect x="70" y="110" width="30" height="80" fill="#e23636" opacity="0.9"/>
+              <rect x="120" y="80" width="30" height="110" fill="#FFD700" opacity="0.9"/>
+              <rect x="170" y="60" width="30" height="130" fill="#e23636" opacity="0.9"/>
+              <rect x="220" y="30" width="30" height="160" fill="#00ff88" opacity="0.9"/>
+              <!-- Grid lines -->
+              <line x1="20" y1="190" x2="280" y2="190" stroke="#333" stroke-width="1"/>
+              <line x1="20" y1="150" x2="280" y2="150" stroke="#333" stroke-width="1" stroke-dasharray="4"/>
+              <line x1="20" y1="110" x2="280" y2="110" stroke="#333" stroke-width="1" stroke-dasharray="4"/>
+              <line x1="20" y1="70" x2="280" y2="70" stroke="#333" stroke-width="1" stroke-dasharray="4"/>
+              <text x="150" y="20" text-anchor="middle" font-family="Bangers" font-size="14" fill="#e23636">DATA ANALYSIS</text>
+            </svg>
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">🕸️ DATA SCIENCE PROJECT</h3>
+            <p class="project-desc">Advanced ML pipeline for data analysis and predictive modeling with real-world datasets.</p>
+            <div class="project-tags">
+              <span class="p-tag">Python</span>
+              <span class="p-tag">ML</span>
+              <span class="p-tag">Pandas</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Omprakash-S" target="_blank" class="proj-btn">
+                <span>GITHUB →</span>
+              </a>
+            </div>
+          </div>
+          <div class="panel-sfx">CRUNCH!</div>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-panel pp2" data-aos="fade-up" data-delay="100">
+        <div class="project-panel-inner">
+          <div class="project-num">CASE #002</div>
+          <div class="project-visual pv2">
+            <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+              <rect width="300" height="200" fill="#0d0d0d"/>
+              <!-- Web app mock -->
+              <rect x="10" y="10" width="280" height="180" rx="8" fill="#1a1a2e" stroke="#e23636" stroke-width="2"/>
+              <rect x="10" y="10" width="280" height="30" rx="8" fill="#e23636"/>
+              <circle cx="30" cy="25" r="6" fill="#ff6b6b"/>
+              <circle cx="50" cy="25" r="6" fill="#FFD700"/>
+              <circle cx="70" cy="25" r="6" fill="#00ff88"/>
+              <text x="150" y="29" text-anchor="middle" font-family="monospace" font-size="10" fill="white">FULL STACK APP</text>
+              <!-- Content mock -->
+              <rect x="20" y="55" width="260" height="15" rx="3" fill="#333"/>
+              <rect x="20" y="80" width="200" height="15" rx="3" fill="#333"/>
+              <rect x="20" y="105" width="240" height="15" rx="3" fill="#333"/>
+              <rect x="20" y="140" width="80" height="28" rx="14" fill="#e23636"/>
+              <text x="60" y="159" text-anchor="middle" font-family="Bangers" font-size="12" fill="white">LAUNCH</text>
+            </svg>
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">⚡ FULL STACK APP</h3>
+            <p class="project-desc">End-to-end web application with React frontend, Node backend, and real-time features.</p>
+            <div class="project-tags">
+              <span class="p-tag">React</span>
+              <span class="p-tag">Node.js</span>
+              <span class="p-tag">MongoDB</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Omprakash-S" target="_blank" class="proj-btn">
+                <span>GITHUB →</span>
+              </a>
+            </div>
+          </div>
+          <div class="panel-sfx">BOOM!</div>
+        </div>
+      </div>
+
+      <!-- Project 3 - Featured -->
+      <div class="project-panel pp3 featured-project" data-aos="fade-up" data-delay="200">
+        <div class="project-panel-inner">
+          <div class="project-num featured-label">⭐ FEATURED MISSION</div>
+          <div class="project-visual pv3">
+            <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+              <rect width="300" height="200" fill="#0a0a1a"/>
+              <!-- AI Brain -->
+              <circle cx="150" cy="100" r="70" fill="none" stroke="#FFD700" stroke-width="2" opacity="0.5"/>
+              <circle cx="150" cy="100" r="50" fill="none" stroke="#e23636" stroke-width="2" opacity="0.7"/>
+              <circle cx="150" cy="100" r="30" fill="#e23636" opacity="0.3"/>
+              <circle cx="150" cy="100" r="10" fill="#FFD700"/>
+              <!-- Nodes -->
+              <circle cx="80" cy="70" r="6" fill="#00ff88"/><line x1="80" y1="70" x2="150" y2="100" stroke="#00ff88" stroke-width="1"/>
+              <circle cx="220" cy="70" r="6" fill="#e23636"/><line x1="220" y1="70" x2="150" y2="100" stroke="#e23636" stroke-width="1"/>
+              <circle cx="80" cy="130" r="6" fill="#FFD700"/><line x1="80" y1="130" x2="150" y2="100" stroke="#FFD700" stroke-width="1"/>
+              <circle cx="220" cy="130" r="6" fill="#00ff88"/><line x1="220" y1="130" x2="150" y2="100" stroke="#00ff88" stroke-width="1"/>
+              <circle cx="150" cy="30" r="6" fill="#e23636"/><line x1="150" y1="30" x2="150" y2="100" stroke="#e23636" stroke-width="1"/>
+              <circle cx="150" cy="170" r="6" fill="#FFD700"/><line x1="150" y1="170" x2="150" y2="100" stroke="#FFD700" stroke-width="1"/>
+              <text x="150" y="15" text-anchor="middle" font-family="Bangers" font-size="12" fill="#FFD700">AI PROJECT</text>
+            </svg>
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">🤖 AI / ML PROJECT</h3>
+            <p class="project-desc">Cutting-edge AI solution leveraging large language models, computer vision, or deep learning to solve real-world problems.</p>
+            <div class="project-tags">
+              <span class="p-tag">AI</span>
+              <span class="p-tag">LLM</span>
+              <span class="p-tag">TensorFlow</span>
+              <span class="p-tag">Python</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Omprakash-S" target="_blank" class="proj-btn proj-btn-featured">
+                <span>VIEW PROJECT →</span>
+              </a>
+            </div>
+          </div>
+          <div class="panel-sfx sfx-featured">WOW!</div>
+        </div>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="project-panel pp4" data-aos="fade-up" data-delay="300">
+        <div class="project-panel-inner">
+          <div class="project-num">CASE #004</div>
+          <div class="project-visual pv4">
+            <svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+              <rect width="300" height="200" fill="#111"/>
+              <!-- Pipeline visualization -->
+              <rect x="20" y="85" width="50" height="30" rx="5" fill="#e23636"/>
+              <text x="45" y="105" text-anchor="middle" font-family="monospace" font-size="8" fill="white">SOURCE</text>
+              <line x1="70" y1="100" x2="110" y2="100" stroke="#FFD700" stroke-width="2" marker-end="url(#arrow)"/>
+              <rect x="110" y="85" width="60" height="30" rx="5" fill="#003153"/>
+              <text x="140" y="105" text-anchor="middle" font-family="monospace" font-size="8" fill="white">TRANSFORM</text>
+              <line x1="170" y1="100" x2="210" y2="100" stroke="#FFD700" stroke-width="2"/>
+              <rect x="210" y="85" width="60" height="30" rx="5" fill="#00ff88"/>
+              <text x="240" y="105" text-anchor="middle" font-family="monospace" font-size="8" fill="#000">OUTPUT</text>
+              <!-- Data points flowing -->
+              <circle cx="90" cy="100" r="3" fill="#FFD700" class="flow-dot"/>
+              <circle cx="195" cy="100" r="3" fill="#FFD700"/>
+              <text x="150" y="50" text-anchor="middle" font-family="Bangers" font-size="14" fill="#e23636">ETL PIPELINE</text>
+            </svg>
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">📊 DATA PIPELINE</h3>
+            <p class="project-desc">Scalable ETL pipeline processing massive datasets with transformation and analytics.</p>
+            <div class="project-tags">
+              <span class="p-tag">SQL</span>
+              <span class="p-tag">ETL</span>
+              <span class="p-tag">Spark</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Omprakash-S" target="_blank" class="proj-btn">
+                <span>GITHUB →</span>
+              </a>
+            </div>
+          </div>
+          <div class="panel-sfx">ZAP!</div>
+        </div>
+      </div>
+
+      <!-- GitHub CTA Panel -->
+      <div class="project-panel pp5 github-cta" data-aos="fade-up" data-delay="400">
+        <div class="project-panel-inner github-inner">
+          <div class="github-spider">🕷️</div>
+          <h3>MORE MISSIONS AWAIT!</h3>
+          <p>The multiverse of projects is vast and ever-growing...</p>
+          <a href="https://github.com/Omprakash-S" target="_blank" class="btn-comic btn-github">
+            <span class="btn-shadow"></span>
+            <span class="btn-text">🔗 EXPLORE GITHUB</span>
+          </a>
+          <div class="coming-soon-badge">LINKS COMING SOON!</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="contact-section section-panel">
+    <div class="section-label">// SIGNAL THE HERO</div>
+    <div class="sfx-bg-text">CONTACT</div>
+
+    <div class="contact-container">
+      <div class="contact-left">
+        <div class="bat-signal">
+          <!-- Spider Signal instead of Bat Signal -->
+          <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" class="spider-signal-svg">
+            <defs>
+              <radialGradient id="signalGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#e23636" stop-opacity="0.8"/>
+                <stop offset="70%" stop-color="#e23636" stop-opacity="0.2"/>
+                <stop offset="100%" stop-color="#e23636" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <circle cx="150" cy="150" r="140" fill="url(#signalGlow)" class="signal-pulse"/>
+            <circle cx="150" cy="150" r="100" fill="none" stroke="#e23636" stroke-width="2" opacity="0.5" class="signal-ring"/>
+            <circle cx="150" cy="150" r="70" fill="none" stroke="#e23636" stroke-width="2" opacity="0.7" class="signal-ring"/>
+            <circle cx="150" cy="150" r="40" fill="none" stroke="#e23636" stroke-width="3" opacity="0.9" class="signal-ring"/>
+            <!-- Spider symbol in center -->
+            <g transform="translate(150,150)">
+              <path d="M0,-25 L-8,-5 L0,0 L8,-5 Z" fill="#e23636"/>
+              <path d="M0,0 L-12,15 L0,10 L12,15 Z" fill="#e23636"/>
+              <circle cx="0" cy="-12" r="8" fill="#e23636"/>
+              <!-- Legs -->
+              <line x1="-8" y1="-10" x2="-25" y2="-20" stroke="#e23636" stroke-width="2.5"/>
+              <line x1="-8" y1="-5" x2="-28" y2="-2" stroke="#e23636" stroke-width="2.5"/>
+              <line x1="-8" y1="5" x2="-25" y2="15" stroke="#e23636" stroke-width="2.5"/>
+              <line x1="8" y1="-10" x2="25" y2="-20" stroke="#e23636" stroke-width="2.5"/>
+              <line x1="8" y1="-5" x2="28" y2="-2" stroke="#e23636" stroke-width="2.5"/>
+              <line x1="8" y1="5" x2="25" y2="15" stroke="#e23636" stroke-width="2.5"/>
+            </g>
+            <!-- Web lines emanating -->
+            <line x1="150" y1="10" x2="150" y2="290" stroke="#e23636" stroke-width="0.5" opacity="0.3"/>
+            <line x1="10" y1="150" x2="290" y2="150" stroke="#e23636" stroke-width="0.5" opacity="0.3"/>
+            <line x1="40" y1="40" x2="260" y2="260" stroke="#e23636" stroke-width="0.5" opacity="0.3"/>
+            <line x1="260" y1="40" x2="40" y2="260" stroke="#e23636" stroke-width="0.5" opacity="0.3"/>
+          </svg>
+        </div>
+        <div class="contact-headline">
+          <h2 class="section-title">SEND THE <span class="accent-red">SIGNAL</span></h2>
+          <p>Got a mission? Need a Data Scientist on your team? The Spider-Signal is always on!</p>
+        </div>
+        <div class="contact-info-list">
+          <a href="https://github.com/Omprakash-S" target="_blank" class="contact-item">
+            <div class="contact-icon">⚡</div>
+            <div class="contact-text">
+              <span class="c-label">GITHUB</span>
+              <span class="c-val">github.com/Omprakash-S</span>
+            </div>
+          </a>
+          <div class="contact-item">
+            <div class="contact-icon">📧</div>
+            <div class="contact-text">
+              <span class="c-label">EMAIL</span>
+              <span class="c-val">Available on request</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div class="contact-text">
+              <span class="c-label">UNIVERSE</span>
+              <span class="c-val">Earth-616 (India) 🇮🇳</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-right">
+        <div class="contact-form-wrap">
+          <div class="form-panel-header">
+            <span>📡 TRANSMIT MESSAGE</span>
+          </div>
+          <form class="contact-form" id="contactForm">
+            <div class="form-group">
+              <label for="name">YOUR ALIAS</label>
+              <input type="text" id="name" name="name" placeholder="Peter Parker..." required/>
+              <span class="form-line"></span>
+            </div>
+            <div class="form-group">
+              <label for="email">SIGNAL FREQUENCY (EMAIL)</label>
+              <input type="email" id="email" name="email" placeholder="hero@spiderverse.com" required/>
+              <span class="form-line"></span>
+            </div>
+            <div class="form-group">
+              <label for="message">MISSION BRIEFING</label>
+              <textarea id="message" name="message" rows="5" placeholder="I need the amazing data scientist for a mission..." required></textarea>
+              <span class="form-line"></span>
+            </div>
+            <button type="submit" class="btn-comic btn-send" id="sendBtn">
+              <span class="btn-shadow"></span>
+              <span class="btn-text">🕷️ SEND SIGNAL</span>
+            </button>
+            <div class="form-success" id="formSuccess">
+              <span>✅ Signal received! I'll swing by soon!</span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="comic-footer">
+    <canvas id="footerCanvas" class="footer-canvas"></canvas>
+    <div class="footer-content">
+      <div class="footer-logo">
+        <span class="footer-spider">🕷️</span>
+        <span class="footer-name">OMPRAKASH.S</span>
+      </div>
+      <p class="footer-quote">"With great data comes great responsibility."</p>
+      <div class="footer-socials">
+        <a href="https://github.com/Omprakash-S" target="_blank" class="social-link">GITHUB</a>
+      </div>
+      <div class="footer-copy">
+        © 2025 OMPRAKASH.S · ALL RIGHTS RESERVED · MULTIVERSE EDITION
+      </div>
+      <div class="footer-web-line"></div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
